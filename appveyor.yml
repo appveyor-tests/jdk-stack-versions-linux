@@ -5,14 +5,15 @@ stack:
 
 test_script:
 - sh: |
+    env
     VERSIONS["7"]="1.7.0"
-        java -version
-        javac -version
-        if [[ $(java -version 2>&1) =~ ${VERSIONS["7"]} ]] && [[ $(javac -version 2>&1) =~ ${VERSIONS["7"]} ]]; then
-            echo "Version is Correct"
-        else
-            echo "[ERROR] Version of JDK is incorrect!" 1>&2;
-            exit 2;
-        fi
-    done
+    java -version
+    javac -version
+    if [[ $(java -version 2>&1) =~ ${VERSIONS["7"]} ]] && [[ $(javac -version 2>&1) =~ ${VERSIONS["7"]} ]]; then
+        echo "Version is Correct"
+    else
+        echo "[ERROR] Version of JDK is incorrect!" 1>&2;
+        exit 2;
+    fi
+
 build: off
