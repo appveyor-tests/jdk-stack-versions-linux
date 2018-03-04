@@ -1,4 +1,8 @@
-stack: jdk 7
+stack: 
+  matrix:
+  - jdk 7
+  - jdk 8
+  - jdk 9
 
 test_script:
 - sh: |
