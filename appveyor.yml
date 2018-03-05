@@ -6,10 +6,13 @@ stack:
 test_script:
 - sh: |
     env
+    declare -A VERSIONS
     VERSIONS["7"]="1.7.0"
+    VERSIONS["8"]="1.8.0"
+    VERSIONS["9"]="9-internal"
     java -version
     javac -version
-    if [[ $(java -version 2>&1) =~ ${VERSIONS["7"]} ]] && [[ $(javac -version 2>&1) =~ ${VERSIONS["7"]} ]]; then
+    if [[ $(java -version 2>&1) =~ ${VERSIONS["$APPVEYOR_STACK_JDK"]} ]] && [[ $(javac -version 2>&1) =~ ${VERSIONS["$APPVEYOR_STACK_JDK"]} ]]; then
         echo "Version is Correct"
     else
         echo "[ERROR] Version of JDK is incorrect!" 1>&2;
