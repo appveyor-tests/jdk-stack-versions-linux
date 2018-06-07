@@ -23,8 +23,8 @@ test_script:
     if [[ $(java -version 2>&1) =~ ${VERSIONS[$APPVEYOR_STACK_JDK]} ]] && [[ $(javac -version 2>&1) =~ ${VERSIONS[$APPVEYOR_STACK_JDK]} ]]; then
         echo "Version is Correct"
     else
-        echo "[ERROR] Version of JDK is incorrect!" 1>&2;
-        exit 2;
+        echo "[ERROR] Version of JDK is incorrect!"
+        exit 1
     fi
 
 build: off
