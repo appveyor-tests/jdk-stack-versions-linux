@@ -24,7 +24,7 @@ test_script:
         echo "Version is Correct"
     else
         echo "[ERROR] Version of JDK is incorrect!"
-        exit 1
+        return 1
     fi
 
 build: off
