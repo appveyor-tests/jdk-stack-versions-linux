@@ -9,7 +9,9 @@ stack:
   - jdk 9
   - jdk 10
   - jdk 11
-
+  - jdk 12
+  - jdk 13
+    
 test_script:
 - sh: env
 - sh: echo $PATH | tr ':' '\n'
@@ -22,6 +24,8 @@ test_script:
     VERSIONS["9"]="9.0.4"
     VERSIONS["10"]="(javac|build) 10"
     VERSIONS["11"]="(javac|build) 11"
+    VERSIONS["12"]="(javac|build) 12"
+    VERSIONS["13"]="(javac|build) 13"
     if [[ $(java -version 2>&1) =~ ${VERSIONS[$APPVEYOR_STACK_JDK]} ]] && [[ $(javac -version 2>&1) =~ ${VERSIONS[$APPVEYOR_STACK_JDK]} ]]; then
         echo "Version is Correct"
     else
