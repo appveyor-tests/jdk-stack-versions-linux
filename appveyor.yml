@@ -11,6 +11,7 @@ stack:
   - jdk 11
   - jdk 12
   - jdk 13
+  - jdk 14
     
 test_script:
 - sh: env
@@ -26,6 +27,7 @@ test_script:
     VERSIONS["11"]="(javac|build) 11"
     VERSIONS["12"]="(javac|build) 12"
     VERSIONS["13"]="(javac|build) 13"
+    VERSIONS["14"]="(javac|build) 14"
     if [[ $(java -version 2>&1) =~ ${VERSIONS[$APPVEYOR_STACK_JDK]} ]] && [[ $(javac -version 2>&1) =~ ${VERSIONS[$APPVEYOR_STACK_JDK]} ]]; then
         echo "Version is Correct"
     else
