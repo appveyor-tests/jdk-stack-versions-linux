@@ -48,4 +48,15 @@ test_script:
         return 1
     fi
 
+# test TLS
+- sh: javac TLSProtocolTest.java
+- sh: java TLSProtocolTest
+- sh: |
+    if [[ $(java TLSProtocolTest) =~ TLSv1.2 ]]; then
+        echo "JDK $APPVEYOR_STACK_JDK supports TLS 1.2"
+    else
+        echo "[ERROR] JDK $APPVEYOR_STACK_JDK does not supports TLS 1.2!"
+        return 1
+    fi    
+
 build: off
