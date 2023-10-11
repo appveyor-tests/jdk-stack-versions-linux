@@ -48,6 +48,9 @@ test_script:
         return 1
     fi
 
+# simple test
+- sh: javac SimpleTest.java
+- sh: java SimpleTest
 # test TLS
 - sh: javac TLSProtocolTest.java
 - sh: java TLSProtocolTest
