@@ -29,6 +29,7 @@ stack:
 test_script:
 - sh: env
 - sh: echo $PATH | tr ':' '\n'
+- sh: retry -v
 - sh: java -version
 - sh: javac -version
 - sh: |    
