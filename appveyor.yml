@@ -23,14 +23,14 @@ init:
       NC=""
     fi
 
-#stack:
- # - ${JAVA_STACK}
+stack:
+  - ${JAVA_STACK}
     
 test_script:
 - sh: env
 - sh: echo $PATH | tr ':' '\n'
-- sh: VER=$(echo "$JAVA_STACK" | cut -d' ' -f2)
-- sh: export PATH=/usr/lib/jvm/java-${VER}-openjdk-amd64/bin:$PATH
+#- sh: VER=$(echo "$JAVA_STACK" | cut -d' ' -f2)
+#- sh: export PATH=/usr/lib/jvm/java-${VER}-openjdk-amd64/bin:$PATH
 - sh: java -version
 - sh: javac -version
 - sh: |    
